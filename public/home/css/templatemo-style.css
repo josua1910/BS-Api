@@ -35,9 +35,9 @@ body {
 }
 body {
   font: 16px/1.6 'Raleway', Arial, Helvetica, sans-serif;
-  color: #fff;
+  color: #F00;
   text-align:center;
-  background: #222;
+  background: #fff;
 }
 img {
   border: 0;
@@ -65,12 +65,12 @@ html {
   transition: all 0.4s ease;
 }
 a {
-  color: #fff;
+  color: #f00;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #fff;
+  color: #f00;
   outline: none;
   text-decoration: underline;
 }
@@ -151,7 +151,7 @@ video {
   bottom: 0;
 }
 .wrapper-background-dark:after {
-  background: #222;
+  background: #fff;
   opacity:0.95;
 }
 .section-inner {
@@ -166,7 +166,7 @@ video {
 
 .btn {
   background: #fff;
-  color: #222;
+  color: #F00;
   text-align:center;
   line-height:52px;
   padding:0 35px;
@@ -177,8 +177,8 @@ video {
   border-radius: 10px;
 }
 .btn:hover, .btn:focus {
-  color:#fff;
-  border-color:#fff;
+  color:#F00;
+  border-color:#F00;
   background:none;
 }
 .btn:focus {
@@ -193,21 +193,21 @@ video {
 }
 .btn.btn-outline {
   background:none;
-  border-color:#fff;
-  color:#fff;
+  border-color:#F00;
+  color:#F00;
   border-width:1px;
 }
 .btn.btn-outline:hover, .btn.btn-outline:focus {
   background:#fff;
-  color:#222;
+  color:#F00;
 }
 .btn.btn-dark {
-  color: #222;
-  border-color: #222;
+  color: #F00;
+  border-color: #F00;
 }
 .btn.btn-dark:hover, .btn.btn-dark:focus {
-  background: #222;
-  color: #fff;
+  background: #fff;
+  color: #F00;
 }
 .owl-carousel .owl-stage {
   display: -webkit-box;
@@ -327,7 +327,7 @@ a#logo {
   margin-left: 30px;
 }
 .navbar-nav li a {
-  color:#fff;
+  color:#F00;
   font-size: 15px;
   text-decoration:none;
   display:block;
@@ -827,7 +827,7 @@ textarea.form-control {
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 700;
-  color: #fff;
+  color: #F00;
   text-align: right;
   margin-bottom: -10px;
 }
