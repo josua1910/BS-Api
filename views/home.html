@@ -1,632 +1,1148 @@
-<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-   <link href="https://i.ibb.co/hVNNRyz/IMG-20210405-223910.jpg" rel="shortcut icon" type="image/png"> 
-  <title>FlinSky-API</title>
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/ruang-admin.min.css" rel="stylesheet">
-  <script>
-window['CboxReady'] = function (Cbox) {
-	Cbox('button', '6-852538-vNvLf8');
-}
-</script>
-<script src="https://static.cbox.ws/embed/1.js" async></script>
-</head>
-
-<body id="page-top" onload="getvisitor();">
-   <iframe src="https://i.top4top.io/m_1921vitbo0.mp3" hidden allow="autoplay" ;="" encrypt-media="" aria-hidden="true"></iframe> 
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon">
-        	<img src="img/logo/logo2.png">
-        </div>
-        <div class="sidebar-brand-text mx-3">Fsky's API</div>
-      </a>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-code"></i>
-          <span>Beranda</span></a>
-      </li>
-      <hr class="sidebar-divider">
-      <div class="sidebar-heading">
-        My Features
-      </div>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
-          aria-expanded="true" aria-controls="collapseBootstrap">
-          <i class="fas fa-fw fa-arrow-down"></i>
-          <span>Downloader</span>
-        </a>
-        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Downloader</h6>
-            <a class="collapse-item" href="api/joox?q=akad">Joox Play</a>
-            <a class="collapse-item" href="api/yutub/video?url=https://youtu.be/nMU51DjKJOA&apikey=APIKEY_ELU">YouTube Video Downloader</a>
-            <a class="collapse-item" href="api/yutub/audio?url=https://youtu.be/nMU51DjKJOA&apikey=APIKEY_ELU">YouTube Audio Downloader</a>
-            <a class="collapse-item" href="api/fbdown/?url=https://www.facebook.com/110362933761364/posts/312847600179562/?app=fbl&apikey=APIKEY_ELU">Facebook Downloader</a>
-            <a class="collapse-item" href="api/tiktod/?url=https://vt.tiktok.com/ZSJjcebMW/&apikey=APIKEY_ELU">Tiktok Downloader</a>
-            <a class="collapse-item" href="api/tiktod/stalk/?username=bella&apikey=APIKEY_ELU">Tiktok Stalk</a>
-            <a class="collapse-item" href="api/ig/stalk?username=_sekhaa&apikey=APIKEY_ELU">Instagram Stalk</a>
-            <a class="collapse-item" href="api/yutub/search?video=Rey Ns&apikey=APIKEY_ELU">YouTube Search</a>
-            <a class="collapse-item" href="api/yutub/play?q=surender lirik&apikey=APIKEY_LU_TOD">YouTube Play</a>
-            </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseIslamic" aria-expanded="true"
-          aria-controls="collapseIslamic">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Islami</span>
-        </a>
-        <div id="collapseIslamic" class="collapse" aria-labelledby="headingIslamic" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Islami</h6>
-            <a class="collapse-item" href="api/hadits?kitab=bukhari&nomor=52&apikey=APIKEY_ELU">Hadits Shahih</a>
-            <a class="collapse-item" href="api/quran?surah=1&ayat=2&apikey=APIKEY_ELU">Al Qur'an</a>
-            <a class="collapse-item" href="api/muslim/tahlil?apikey=APIKEY_ELU">Doa Tahlil</a>
-            <a class="collapse-item" href="api/muslim/wirid?apikey=APIKEY_ELU">Doa Wirid</a>
-            <a class="collapse-item" href="api/muslim/asmaulhusna?apikey=APIKEY_ELU">Asmaul Husna</a>
-            <a class="collapse-item" href="api/muslim/doaharian?apikey=APIKEY_ELU">Doa Harian</a>
-            <a class="collapse-item" href="api/muslim/ayatkursi?apikey=APIKEY_ELU">Ayat Kursi</a>
-            <a class="collapse-item" href="api/kisahnabi?nabi=muhammad&apikey=APIKEY_ELU">Kisah Nabi</a>
-            <a class="collapse-item" href="api/muslim/niatshalat?apikey=APIKEY_ELU">Niat Shalat</a>
-            <a class="collapse-item" href="api/muslim/bacaanshalat?apikey=APIKEY_ELU">Bacaan Shalat</a>
-            <a class="collapse-item" href="api/jadwalshalat?kota=jakartautara&apikey=APIKEY_ELU">Jadwal Shalat</a>
-          </div>
-        </div>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKodepos" aria-expanded="true"
-          aria-controls="collapseKodepos">
-          <i class="fas fa-fw fa-search"></i>
-          <span>Random image</span>
-        </a>
-        <div id="collapseKodepos" class="collapse" aria-labelledby="headingKodepos" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Random Image</h6>
-            <a class="collapse-item" href="api/wallpaper/teknologi?apikey=APIKEY_ELU _NGAB">Wallpaper Teknologi</a>
-            <a class="collapse-item" href="api/wallpaper/programming?apikey=APIKEY_ELU _NGAB">Wallpaper Programming</a>
-            <a class="collapse-item" href="api/wallpaper/cyberspace?apikey=APIKEY_ELU _NGAB">Wallpaper CyberSpace</a>
-            <a class="collapse-item" href="api/wallpaper/muslim?apikey=APIKEY_ELU _NGAB">Wallpaper Muslim</a>
-            <a class="collapse-item" href="api/wallpaper/pegunungan?apikey=APIKEY_ELU _NGAB">Wallpaper Mountain View</a>
-            </div>
-            </div>
-            </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGithub"
-          aria-expanded="true" aria-controls="collapseGithub">
-          <i class="fas fa-fw fa-book"></i>
-          <span>Random text</span>
-        </a>
-        <div id="collapseGithub" class="collapse" aria-labelledby="headingGithub" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Random text</h6>
-            <a class="collapse-item" href="api/randomquote?apikey=apikeyelu">Quotes</a>
-            <a class="collapse-item" href="api/randomquote/muslim?apikey=apikeyelu">Quotes Islami</a>
-            <a class="collapse-item" href="api/quotes/kanye?apikey=apikeyelu">Quotes Kanye</a>
-            <a class="collapse-item" href="api/random/asmaulhusna?apikey=apikeyelu">Asmaul Husna</a>
-            <a class="collapse-item" href="api/random/meme?apikey=apikeyelu">Meme</a>
-            <a class="collapse-item" href="api/random/wallpaper?apikey=apikeyelu">Wallpaper</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMaker"
-          aria-expanded="true" aria-controls="collapseMaker">
-          <i class="fa fa-fw fa-images"></i>
-          <span>Texpro</span>
-        </a>
-        <div id="collapseMaker" class="collapse" aria-labelledby="headingMaker" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Textpro Maker</h6>
-            <a class="collapse-item" href="api/maker?text=Rey sekha api&apikey=apikeyelu">3D </a>
-            <a class="collapse-item" href="api/maker2?text=Rey sekha api&apikey=apikeyelu">3D 2</a>
-            <a class="collapse-item" href="api/maker3?text=Rey sekha api&apikey=apikeyelu">3D 3</a>
-            <a class="collapse-item" href="api/maker4?text=Rey sekha api&apikey=apikeyelu">3D 4</a>
-            <a class="collapse-item" href="api/maker3d?text=Rey sekha api&apikey=apikeyelu">3D 5</a>
-            <a class="collapse-item" href="api/maker3d/no2?text=Rey sekha api&apikey=apikeyelu">3D 6</a>
-            <a class="collapse-item" href="api/maker3d/no3?text=Rey sekha api&apikey=apikeyelu">3D 7</a>
-            <a class="collapse-item" href="api/maker3d/no4?text=Rey sekha api&apikey=apikeyelu">3D 8</a>
-            <a class="collapse-item" href="api/maker3d/no5?text=Rey sekha api&apikey=apikeyelu">3D 9</a>
-            <a class="collapse-item" href="api/maker/special/transformer?text=ReyGanteng&apikey=apikeyelu">Transformer</a>
-            <a class="collapse-item" href="api/maker/special/epep?text=reygans&apikey=apikeyelu">ffserti</a>
-            <a class="collapse-item" href="api/maker/hartatahta?text=Tess&apikey=apikeylu">Harta tahta (erorr)</a>
-            <a class="collapse-item" href="api/textmaker?text=Rey&text2=Ganteng&theme=glitch&apikey=apikeyelu">Glitch</a>
-            <a class="collapse-item" href="api/textmaker?text=Rey&text2=Gans&text3=reygans&theme=google-suggestion&apikey=apikeyelu">Google Suggestion</a>
-            <a class="collapse-item" href="api/textmaker/game?text=Rey&text2=Gans&theme=pubg&apikey=apikeyelu">PUBG</a>
-            <a class="collapse-item" href="api/textmaker/game?text=Rey&text2=Gans&theme=battlefield&apikey=apikeyelu">BattleField</a>
-            <a class="collapse-item" href="api/textmaker/senja?text=Rey&theme=coffee-cup&apikey=apikeyelu">Coffee Cup</a>
-            <a class="collapse-item" href="api/textmaker/senja?text=rey&theme=coffee-cup2&apikey=apikeyelu">Coffee Cup 2</a>
-            <a class="collapse-item" href="api/textmaker/metallic?text=rey&theme=neon&apikey=apikeyelu">Neon</a>
-            <a class="collapse-item" href="api/textmaker/metallic?text=rey&theme=glow&apikey=apikeyelu">Glow</a>
-            <a class="collapse-item" href="api/textmaker/alam?text=rey&theme=summer&apikey=apikeyelu">Summer</a>
-            <a class="collapse-item" href="api/textmaker/alam?text=rey&theme=flower&apikey=apikeyelu">Flower</a>
-            <a class="collapse-item" href="api/textmaker/random?text=rey&theme=text-burn&apikey=apikeyelu">Text Burn</a>
-            <a class="collapse-item" href="api/textmaker/random?text=rey&theme=art-quote&apikey=apikeyelu">Art Quote</a>
-            <a class="collapse-item" href="api/textmaker/roses?text=rey&theme=wooden-boarch&apikey=apikeyelu">Wooden Boarch</a>
-            <a class="collapse-item" href="api/textmaker/roses?text=rey&theme=golden&apikey=apikeyelu">Golden Roses</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnime" aria-expanded="true"
-          aria-controls="collapseAnime">
-          <i class="fas fa-fw fa-bullseye"></i>
-          <span>anime</span>
-        </a>
-        <div id="collapseAnime" class="collapse" aria-labelledby="headingAnime" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">anime</h6>
-            <a class="collapse-item" href="api/anime/kusonime?search=planetarian&apikey=APIKEY_ELU _NGAB">Kusonime</a>
-            <a class="collapse-item" href="api/dewabatch?q=one piece&apikey=APIKEY_ELU _NGAB">Dewabatch</a>
-            <a class="collapse-item" href="api/manga?search=kimetsu no yaiba&apikey=APIKEY_ELU _NGAB">Manga</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGames" aria-expanded="true" aria-controls="collapseForm">
-                    <i class="app-menu__icon fa fa-laptop"></i>
-                    <span>Games</span>
-                </a>
-                <div id="collapseGames" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Games</h6>
-            <a class="collapse-item" href="/api/kuis/caklontong?apikey=APIKEY_ELU _NGAB">Cak Lontong (by zahirr)</a>
-            <a class="collapse-item" href="/api/kuis/tebakgambar?apikey=APIKEY_ELU _NGAB">Tebak Gambar (by zahirr)</a>
-            </div>
-            </div>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFilmApik" aria-expanded="true" aria-controls="collapseForm">
-                    <i class="fab fa-fw fa-gratipay"></i>
-                    <span>Searching Film</span>
-                </a>
-                <div id="collapseFilmApik" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Searching Film</h6>
-            <a class="collapse-item" href="/api/filmapik/search?film=avenger&apikey=APIKEY_ELU _NGAB">Cari Film</a>
-            <a class="collapse-item" href="/api/filmapik/kategori?film=action&apikey=APIKEY_ELU _NGAB">Cari Kategori Film</a>
-            <a class="collapse-item" href="/api/filmapik/terbaru?apikey=APIKEY_ELU _NGAB">Film Terbaru</a>
-            <a class="collapse-item" href="/api/filmapik/play?id=142455&apikey=APIKEY_ELU _NGAB">Play Film</a>
-            </div>
-            </div>
-        </li>
-        <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLk21" aria-expanded="true" aria-controls="collapseForm"> 
-                    <i class="fas fa-fw fa-leaf"></i> 
-                   <span>Searching Others</span>
-               </a> 
-                    <div id="collapseLk21" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar"> 
-                    <div class="py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Searching Others</h6>
-            <a class="collapse-item" href="/api/lk21/search?film=avenger&apikey=APIKEY_ELU _NGAB">Cari Film</a>
-            <a class="collapse-item" href="/api/lk21/terbaru?apikey=APIKEY_ELU _NGAB">Film Terbaru</a>
-            <a class="collapse-item" href="/api/lk21/comingsoon?apikey=APIKEY_ELU _NGAB">Film Yg Akan Datang</a>
-            <a class="collapse-item" href="/api/lk21/tvseries?apikey=APIKEY_ELU _NGAB">Series TV</a>
-            <a class="collapse-item" href="/api/lk21/year?tahun=2021&apikey=APIKEY_ELU _NGAB">Berdasarkan Tahun</a>
-            <a class="collapse-item" href="/api/lk21/country?negara=indonesia&apikey=APIKEY_ELU _NGAB">Berdasarkan Negara</a>
-            <a class="collapse-item" href="/api/lk21/genre?tipe=action&apikey=APIKEY_ELU _NGAB">Berdasarkan Genre</a>
-            </div>
-            </div>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews" aria-expanded="true" aria-controls="collapseForm">
-                    <i class="fas fa-fw fa-exclamation"></i>
-                    <span>News</span>
-                </a>
-                <div id="collapseNews" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">News</h6>
-            <a class="collapse-item" href="api/news">Jenis Berita</a>
-            <a class="collapse-item" href="api/news/cnn?type=JENIS_BERITA&apikey=MASUKKAN_APIKEY">Cnn News</a>
-            <a class="collapse-item" href="api/news/cnbc?type=JENIS_BERITA&apikey=MASUKKAN_APIKEY">CnBc News</a>
-            <a class="collapse-item" href="api/news/republika?type=JENIS_BERITA&apikey=MASUKKAN_APIKEY">Republika News</a>
-            <a class="collapse-item" href="api/news/tempo?type=JENIS_BERITA&apikey=MASUKKAN_APIKEY">Tempo News</a>
-            <a class="collapse-item" href="api/news/antara?type=JENIS_BERITA&apikey=MASUKKAN_APIKEY">Antara News</a>
-            <a class="collapse-item" href="api/news/kumparan?type=JENIS_BERITA&apikey=MASUKKAN_APIKEY">Kumparan News</a>
-            </div>
-            </div>
-        </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseother" aria-expanded="true"
-          aria-controls="collapseother">
-          <i class="fab fa-fw fa-wpforms"></i>
-          <span>Other API</span>
-        </a>
-        <div id="collapseother" class="collapse" aria-labelledby="headingother" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Other Menu</h6>
-            <a class="collapse-item" href="api/cersex/?&apikey=APIKEY_LU_MBOD">cersex</a>
-            <a class="collapse-item" href="api/simsimi/?text=hai&apikey=APIKEY_ELU_NGAB">Simi Simi</a>
-            <a class="collapse-item" href="api/shoppe?q=baju gamis&apikey=APIKEY_ELU_NGAB">Shoppe</a>
-            <a class="collapse-item" href="api/nulis?text=reyGanteng&apikey=APIKEY_ELU_NGAB">Nulis Buku</a>
-            <a class="collapse-item" href="api/infonpm?query=rey-api&hostname=rey&apikey=APIKEY_ELU_NGAB">Info NPM</a>
-            <a class="collapse-item" href="api/infogempa?apikey=APIKEY_ELU _NGAB">Info Gempa Terkini</a>
-            <a class="collapse-item" href="api/infocuaca?provinsi=jakarta&apikey=APIKEY_ELU _NGAB">Info Cuaca Indonesia</a>
-            <a class="collapse-item" href="api/infocuaca/dunia?apikey=APIKEY_ELU _NGAB">Info Cuaca Dunia</a>
-            <a class="collapse-item" href="api/infocuaca/bandara?apikey=APIKEY_ELU _NGAB">Info Cuaca Bandara</a>
-            <a class="collapse-item" href="api/infotsunami?apikey=APIKEY_ELU _NGAB">Info Tsunami</a>
-            <a class="collapse-item" href="api/covidindo?apikey=APIKEY_ELU _NGAB">Covid Indo</a>
-            <a class="collapse-item" href="api/covidworld?apikey=APIKEY_ELU _NGAB">Covid World</a>
-            <a class="collapse-item" href="api/short/tiny?url=google.com&apikey=APIKEY_ELU _NGAB">Short Link</a>
-            <a class="collapse-item" href="api/wikipedia?search=jembatan&apikey=APIKEY_ELU _NGAB">Wikipedia</a>
-            <a class="collapse-item" href="api/drakorasia?search=tale&apikey=APIKEY_ELU _NGAB">Drakor Asia</a>
-            <a class="collapse-item" href="api/fakedata?country=en&apikey=APIKEY_ELU _NGAB">Fake Data</a>
-            <a class="collapse-item" href="api/hilih?kata=aku kan ganteng banget&apikey=APIKEY_ELU _NGAB">Kata Hilih</a>
-            <a class="collapse-item" href="api/liriklagu?lagu=sayang&apikey=APIKEY_ELU _NGAB">Lirik Lagu</a>
-            <a class="collapse-item" href="api/chordlagu?lagu=sayang&apikey=APIKEY_ELU _NGAB">Chord Lagu</a>
-            <a class="collapse-item" href="api/kbbi?kata=pohon&apikey=APIKEY_ELU _NGAB">KBBI</a>
-            <a class="collapse-item" href="api/kodepos?kota=jakarta&apikey=APIKEY_ELU _NGAB">Kode Pos</a>
-            <a class="collapse-item" href="api/translate?kata=hi&apikey=APIKEY_ELU _NGAB">Translate</a>
-            <a class="collapse-item" href="api/gabut?apikey=APIKEY_ELU _NGAB">Gabut</a>
-          </div>
-        </div>
-      </li>
-      <hr class="sidebar-divider">
-      <div class="sidebar-heading">
-<div class="version"><b>Contact me</b></div>
-      </div>
-      <li class="nav-item">
-          
-            <a class="nav-link collapsed" href="api/about">
-            <i class="fas fa-fw fa-info"></i>
-                    <span>Ingfo</span>
-            </a>
-      </li>
-      <li class="nav-item">
-          
-            <a class="nav-link collapsed" href="https://wa.me/6281246460730?text=apikey+nya+apa+bre">
-            <i class="fas fa-fw fa-key "></i>
-                    <span>Apikey</span>
-            </a>
-      </li>
-      <li class="nav-item">
-            <a class="nav-link collapsed" href="https://github.com/reyhangans">
-            <i class="fab fa-fw fa-github"></i>
-                    <span>Github</span>
-            </a>
-      </li>
-      <li class="nav-item">
-            <a class="nav-link collapsed" href="https://instagram.com/_sekhaa">
-            <i class="fab fa-fw fa-instagram"></i>
-                    <span>Instagram</span>
-            </a>
-      </li>
-      <hr class="sidebar-divider">
-      <div class="version"><b>Design by Flin Sky</b></div>
-    </ul>
-    <!-- Sidebar -->
-    <div id="content-wrapper" class="d-flex flex-column">
-      <div id="content">
-        <!-- TopBar -->
-        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
-          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown no-arrow">
-              
-              </a>
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown">
-                <form class="navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-1 small" placeholder="Search for..."
-                      aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-              </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-              </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-tasks fa-fw"></i>
-                <span class="badge badge-success badge-counter">1</span>
-              </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  MESSAGE BY REY
-                </h6>
-                <a class="dropdown-item align-items-center" href="#">
-                  <div class="mb-3">
-                    <div class="small text-gray-500">Jangan lupa sholat
-                      <div class="small float-right"><b>80%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </a>
-                <a class="dropdown-item align-items-center" href="#">
-                  <div class="mb-3">
-                    <div class="small text-gray-500">Jangan lupa doa
-                      <div class="small float-right"><b>70%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </a>
-                <a class="dropdown-item align-items-center" href="#">
-                  <div class="mb-3">
-                   <div class="small text-gray-500">ada bug lapor saya
-                     <div class="small float-right"><b>20%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="img/logo/logo2.png" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
-              </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
-        <!-- Topbar -->
-
-        <!-- Container Fluid-->
-        <div class="container-fluid" id="container-wrapper">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Beranda</h1>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Beranda</li>
-            </ol>
-          </div>
-          
-          <div class="col-xl-3 col-md-6 mb-4">
-<div class="card h-100">
-<div class="card-body">
-<div class="row align-items-center">
-<div class="col mr-2">
-<div class="text-xs font-weight-bold text-uppercase mb-1">Total API</div>
-<div class="h5 mb-0 font-weight-bold text-gray-800">108</div>
-<div class="mt-2 mb-0 text-muted text-xs">
-<span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 98.2%</span>
-<span>Since last month</span>
-</div>
-</div>
-<div class="col-auto">
-<i class="fas fa-calendar fa-2x text-primary"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-xl-3 col-md-6 mb-4">
-<div class="card h-100">
-<div class="card-body">
-<div class="row no-gutters align-items-center">
-<div class="col mr-2">
-<div class="text-xs font-weight-bold text-uppercase mb-1">Visitor</div>
-<div class="h5 mb-0 font-weight-bold text-gray-800">
-<div class="visitor" id="visitor">00</div>
-</div>
-<div class="mt-2 mb-0 text-muted text-xs">
-
-</span>
-<span>Pengunjung API</span>
-</div>
-</div>
-<div class="col-auto">
-<i class="fas fa-eye fa-2x text-primary"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-          <div class="row mb-3">
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="row align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-uppercase mb-1">Ingfo</div>
-                      <br>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">FlinSky</div>
-                      <div class="mt-2 mb-0 text-muted text-xs">
-                        <span class="text-success mr-2"> kang copas,ngebait,ngemis</span>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-users fa-2x text-info"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-<!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card mb-4">
-              	<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              	<h6 class="m-0 font-weight-bold text-primary">My Skill</h6>
-                  <div class="dropdown no-arrow">
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                      aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Select Periode</div>
-                      <a class="dropdown-item" href="#">Today</a>
-                      <a class="dropdown-item" href="#">Week</a>
-                      <a class="dropdown-item" href="#">This Year</a>
-                    </div>
-                  </div>
-                </div>
-<div class="card-body">
-                  <div class="mb-3">
-                    <div class="small text-gray-500">copas
-                      <div class="small float-right"><b>80%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <div class="small text-gray-500">java
-                      <div class="small float-right"><b>70%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <div class="small text-gray-500">ngemis:v
-                      <div class="small float-right"><b>30%</b></div>
-                    </div>
-                    <div class="progress" style="height: 12px;">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                  </div>
-                  <div class="mb-3">
-                  </div>
-                </div>
-                <div class="card-footer text-center">
-                </div>
-              </div>
-            </div>        
-          <!--Row-->
-      <form action="api/cekApikey"> 
-       <div class="col-lg-6"> 
-        <div class="card mb-4"> 
-         <div class="card-header py-3"> 
-          <div class="card-body"> 
-           <h6 class="animated">Check Apikey Gan</h6> 
-           <input type="text" class="form-control" placeholder="Your apikey" name="apikey" required> 
-           <button class="btn btn-danger btn-icon-split"> <span class="icon text-white-50"> <i class="fas fa-check"></i> </span> <span class="text">Check</span> </button> 
+ <head> 
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <meta name="description" content="Web Hujan APi, Pala Bapak Kao Hujan APi"> 
+  <meta name="author" content="Mat"> 
+  <link href="/img/logo/logo2.png" rel="icon"> 
+  <title>FlinSky API</title> 
+  <!--
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://indrijunanda.github.io/RuangAdmin/css/ruang-admin.min.css" rel="stylesheet">  --> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="/static/css/ruang-admin.min.css"> 
+ </head> 
+ <body id="page-top"> 
+  <div id="wrapper"> 
+   <!-- Sidebar --> 
+   <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar"> 
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"> 
+     <div class="sidebar-brand-icon"> 
+      <img src="/img/logo/logo2.png"> 
+     </div> 
+     <div class="sidebar-brand-text mx-3">
+      FLIN SKY API
+     </div> </a> 
+    <hr class="sidebar-divider my-0"> 
+    <li class="nav-item"> <a class="nav-link" href="/"> <i class="fa fa-code" aria-hidden="true"></i> <span> Document</span></a> </li> 
+    <li class="nav-item"> <a class="nav-link" href="text-maker"> <span> Text Maker</span></a> </li> 
+    <hr class="sidebar-divider"> 
+    <div class="sidebar-heading">
+      APIKEY
+    </div> 
+    <li class="nav-item"> <a class="nav-link" href="https://wa.me/6281246460730"> <i class="fa fa-whatsapp" aria-hidden="true"></i> <span>WhatsApp</span> </a> </li> 
+    <li class="nav-item"> <a class="nav-link" href="https://github.com/reyhangans"> <i class="fa fa-github" aria-hidden="true"></i> <span>Github</span> </a> </li> 
+    <hr class="sidebar-divider"> 
+    <!--<div class="version" id="version-ruangadmin"></div> --> 
+   </ul> 
+   <!-- Sidebar --> 
+   <div id="content-wrapper" class="d-flex flex-column"> 
+    <div id="content"> 
+     <!-- TopBar --> 
+     <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top"> 
+      <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3"> <i class="fa fa-bars" style="color:#363636;"></i> </button> 
+      <ul class="navbar-nav ml-auto"> 
+       <li class="nav-item dropdown no-arrow"> <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="ml-2 d-none d-lg-inline text-dark small"> 
+          <marquee class="marquee" scrolldelay="50">
+           Sungkem mastah
+          </marquee> </span> </a> </li> 
+       <li class="nav-item dropdown no-arrow mx-1"> <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bell" style="color:#363636"></i> <span class="badge badge-danger badge-counter">5+</span> </a> 
+        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown"> 
+         <h6 class="dropdown-header"> New Update </h6> 
+         <a class="dropdown-item d-flex align-items-center" href="https://hujanapi.herokuapp.com/api/nickml?id=1161941&amp;serverid=2002&amp;apikey=API_KEY"> 
+          <div class="mr-3"> 
+           <div class="icon-circle bg-primary"> 
+            <i class="fa fa-link"></i> 
+           </div> 
           </div> 
+          <div> 
+           <div class="small text-gray-500">
+            January 01, 2021
+           </div> 
+           <span class="font-weight-bold">Nick Mobile Legend</span> 
+          </div> </a> 
+         <a class="dropdown-item d-flex align-items-center" href="https://hujanapi.herokuapp.com/api/nickff?id=866740835&amp;apikey=API_KEY"> 
+          <div class="mr-3"> 
+           <div class="icon-circle bg-primary"> 
+            <i class="fa fa-link"></i> 
+           </div> 
+          </div> 
+          <div> 
+           <div class="small text-gray-500">
+            January 01, 2021
+           </div> 
+           <span class="font-weight-bold">Nick Free Fire</span> 
+          </div> </a> 
+         <a class="dropdown-item d-flex align-items-center" href="https://hujanapi.herokuapp.com/api/ssweb?url=google.com&amp;apikey=API_KEY"> 
+          <div class="mr-3"> 
+           <div class="icon-circle bg-primary"> 
+            <i class="fa fa-link"></i> 
+           </div> 
+          </div> 
+          <div> 
+           <div class="small text-gray-500">
+            December 31, 2020
+           </div> 
+           <span class="font-weight-bold">Screenshot WEB</span> 
+          </div> </a> 
+         <a class="dropdown-item d-flex align-items-center" href="https://hujanapi.herokuapp.com/api/linetimeline?url=https://timeline.line.me/post/_dXxojN3GFpO6qMfCp4DXGcuLujuB9SmS5Bfzhkw/1157852855308014679&amp;apikey=API_KEY"> 
+          <div class="mr-3"> 
+           <div class="icon-circle bg-primary"> 
+            <i class="fa fa-link"></i> 
+           </div> 
+          </div> 
+          <div> 
+           <div class="small text-gray-500">
+            December 31, 2020
+           </div> 
+           <span class="font-weight-bold">Line Timeline</span> 
+          </div> </a> 
+         <a class="dropdown-item d-flex align-items-center" href="https://hujanapi.herokuapp.com/api/randomwaifu?apikey=API_KEY"> 
+          <div class="mr-3"> 
+           <div class="icon-circle bg-primary"> 
+            <i class="fa fa-link"></i> 
+           </div> 
+          </div> 
+          <div> 
+           <div class="small text-gray-500">
+            December 30, 2020
+           </div> 
+           <span class="font-weight-bold">Random Waifu</span> 
+          </div> </a> 
+         <a class="dropdown-item text-center small text-gray-500" href="#">Hujan APi</a> 
+        </div> </li> 
+       <div class="topbar-divider d-none d-sm-block"></div> 
+       <li class="nav-item dropdown no-arrow"> <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="img-profile rounded-circle" src="/img/logo/logo2.png" style="max-width: 60px"> <span class="ml-2 d-none d-lg-inline text-dark small">Hello World</span> </a> </li> 
+      </ul> 
+     </nav> 
+     <!-- Topbar --> 
+     <!-- Container Fluid--> 
+     <div class="container-fluid" id="container-wrapper"> 
+      <div class="d-sm-flex align-items-center justify-content-between mb-4"> 
+       <!-- <h1 class="h2 mb-0 text-gray-800" style='text-align:center;'>Document API</h1> --> 
+      </div> 
+      <div class="alert alert-light alert-dismissible" role="alert"> 
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> 
+       <script>
+arrBulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+var txt = "";
+txt += "<p><b>Browser CodeName</b>: " + navigator.appCodeName + "</p>";
+txt += "<p><b>Browser Name</b>: " + navigator.appName + "</p>";
+txt += "<p><b>Cookies Enabled</b>: " + navigator.cookieEnabled + "</p>";
+txt += "<p><b>Browser Online</b>: " + navigator.onLine + "</p>";
+txt += "<p><b>Platform</b>: " + navigator.platform + "</p>";
+txt += "<p><b>User-agent header</b>: " + navigator.userAgent + "</p>";
+var d = new Date();
+const jam = d.getHours();
+const menit = d.getMinutes();
+const detik = d.getSeconds();
+const tgl = d.getDate();
+const bln = d.getMonth();
+const thn = d.getFullYear();
+const bulan = arrBulan[bln]
+/* if (jam > 1 && jam < 11) {
+* view.innerHTML = 'Selamat pagi :)';
+* } else if (jam > 11 && < 15) {
+* view.innerHTML = 'Selamat siang :)';
+* } else if (jam > 15 && < 18) {
+* view.innerHTML = 'Selamat sore :)';
+* } else if (jam > 18 && < 24) {
+* view.innerHTML = 'Selamat malam'
+* } else {
+* view.innerHTML = 'Selamat datang:)'
+* }
+*/
+document.write(txt)
+document.write("Date : "+ jam +":"+ menit +":"+ detik +"~"+ tgl +"-"+ bulan +"-"+ thn +"<br>Welcome back!")</script>
+       <p><b>Browser CodeName</b>: Mozilla</p>
+       <p><b>Browser Name</b>: Netscape</p>
+       <p><b>Cookies Enabled</b>: true</p>
+       <p><b>Browser Online</b>: true</p>
+       <p><b>Platform</b>: Linux armv7l</p>
+       <p><b>User-agent header</b>: Mozilla/5.0 (Linux; Android 9; Redmi 6A Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.99 Mobile Safari/537.36</p>Date : 7:4:19~17-April-2021
+       <br>Welcome back! 
+      </div> 
+      <div class="row"> 
+       <div class="col-lg-12 mb-4"> 
+        <!-- Simple Tables --> 
+        <div class="card"> 
+         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"> 
+          <h6 class="m-0 font-weight-bold text-primary">API's DOCUMENTATION</h6> 
+         </div> 
+         <div class="table-responsive"> 
+          <table class="table align-items-center table-flush"> 
+           <thead class="thead-light"> 
+            <tr> 
+             <th>NAME</th> 
+             <th>TYPE</th> 
+             <th>STATUS</th> 
+             <th>PAMAMETER</th> 
+             <th>INFORMATION</th> 
+             <th>VISIT</th> 
+            </tr> 
+           </thead> 
+           <tbody> 
+            <!--         <tr>
+                        <td>Download Film LK21</td>
+                        <td><span class="badge badge-success">GET</span></td>
+                        <td>Active</td>
+                        <td>APIKEY & QUERY </td>
+                        <td> Download Film LK21 </td>
+                        <td><a href="https://hujanapi.herokuapp.com/api/downloadfilm?query=John%20Wick&apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td>
+                      </tr> ---> 
+            <tr> 
+             <td>FancyText API</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> FancyText API </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/fancytext?text=hujanapi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Spam Call v1</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Spam Call v1 </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/spamcallv1?no=8134567890&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Spam Call v2</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Spam Call v2 </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/spamcallv2?no=8134567890&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Cuttly Shortner</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Cuttly Shortner </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/cuttly?url=fb.com/4&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Dogbin API</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Dogbin API </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/dogbin?text=hujanapi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Nekobin API</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Nekobin API </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/nekobin?text=hujanapi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Mediafire Downloader</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mediafire Downloader </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/mediafire?url=https://www.mediafire.com/file/bpmvdf0d3ovjpkm/1609909359802.jpg/file&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Solidfiles Downloader</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Solidfiles Downloader </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/solidfiles?url=http://www.solidfiles.com/v/2wXw3ryLmq7NR&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Zippyshare Downloader</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Zippyshare Downloader </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/zippydl?url=https://www52.zippyshare.com/v/i0VIAO67/file.html&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Team Logo Maker</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Logo Team Maker </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/teamlogo?text=Rahmat&amp;logo=random&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Character Genshin Impact</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>QUERY &amp; APIKEY</td> 
+             <td> Character Genshin Impact </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/charactergi?query=klee&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>List Character Genshin Impact</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> List Character Genshin Impact </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/charactersgi?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Image To URL</td> 
+             <td><span class="badge badge-success">POST</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Image to URL API </td> 
+             <td><a href="http://hujanapi.herokuapp.com/image2url?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Image HD</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Search Image HD </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/imagehd?query=nasi%20goreng&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Wikipedia</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Wikipedia API </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/wikipedia?query=Rumah&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>GSM Arena</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> GSM Arena Info </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/gsmarena?query=iphone%20x&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Tagihan Indihome</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Cek Tagihan Indihome </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/tagihanindihome?nomor=ISI_NOMOR_INDIHOME&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Tagihan PLN</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Cek Tagihan Listrik (PLN) Pascabayar </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/plnpascabayar?query=NO_PELANGGAN&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Shopee API</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Search Shopee </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/shopee?query=sepatu%20vans&amp;count=10&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Xvideos Search</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Xvideos Search </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/xvideos?query=molly%20jane&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Xvideos Downloader</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Xvideos Downloader </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/xvideosdl?url=https://www.xvideos.com/video49705703/brother_and_sister_wrestle_fuck_-_molly_jane_-_family_therapy&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Xnxx Search</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Xvideos Search </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/xnxx?query=molly%20jane&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Xnxx Downloader</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Xvideos Downloader </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/xnxxdl?url=https://www.xnxx.com/video-ko85b98/molly_jane_gets_grounded_and_fucked_by_daddy&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Cersex</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Cersex </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/cersex?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Pinterest Search</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Pinterest Search Image </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/pinterest?query=sasuke&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Pinterest Download</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Download Pinterest via link, type file : GIF, JPG &amp; VIDEO </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/pinterestdl?url=https://id.pinterest.com/pin/333547916156796305/&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>SSCODE</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> SSCode </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/sscode?query=import%20os&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Tafsir Qur'an</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY</td> 
+             <td> Tafsir Qur'an </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/tafsirquran?query=judi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Kuis Family100</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Kuis Family100 </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/family100?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Pantun</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pantun </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/pantun?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Google Translate</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Google Translate </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/translate?lang=en&amp;tr=id&amp;query=Thank%20you&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Generate QR</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Generate QrCode Text and Link Website </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/generateqr?query=google.com&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Tiktok Profile</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Tiktok Profile </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/tiktok?username=@chikakiku&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Tiktok Download</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Tiktok Download </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/tiktokdl?url=https://vt.tiktok.com/ZSvonPfv/&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Tiktok Hastag</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Tiktok Hastag </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/tiktokhastag?query=kucing&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Tiktok Post</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Tiktok Post </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/tiktokpost?username=@chikakiku&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Facebook Download</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Facebook Download </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/fbdl?url=https://www.facebook.com/kaliasiska86/videos/871879153603258/&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <!-- <tr>
+                        <td>Starmaker Download</td>
+                        <td><span class="badge badge-success">GET</span></td>
+                        <td>Active</td>
+                        <td>APIKEY & QUERY </td>
+                        <td> Starmaker Download </td>
+                        <td><a href="https://hujanapi.herokuapp.com/api/starmakerdl?url=https://m.starmakerstudios.com/d/playrecording?app=sm&from_user_id=3096224747920316&is_convert=true&recordingId=1125899920858862&share_type=copyLink&apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td>
+                      </tr> ---> 
+            <tr> 
+             <td>Cocofun Download</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Cocofun Download </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/cocofundl?url=http://www.icocofun.com/share/post/MVMDSzF6XjFvwG5lsTNIeQ==?lang=id&amp;pkg=id&amp;share_to=copy_link&amp;m=aba6ed673c776fa3b0717b26c2ee3267&amp;d=7e1b32510b069241d8bc53e85adca8608d9022006bf31529b783bc94110838b8&amp;nt=4&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Play Music</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Play Music </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/ytmp3?query=snowman&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Loli</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Loli </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomloli?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr>
+             <td>Random Loli 2</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Loli </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/lolirandom?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Arti Nama</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Primbon Arti Nama </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/arti-nama?name=bejo&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Ramalan Jodoh</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Primbon Ramalan Jodoh </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/ramalan-jodoh?name1=bejo&amp;name2=putri&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Arti Mimpi</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Primbon Arti Mimpi </td> 
+             <td><a href="http://hujanapi.herokuapp.com/api/arti-mimpi?query=berlari&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Wet Glass Text</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Wet Glass Text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/wetglass?text=HujanAPI&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Logo ML Maker</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Maker Mobile Legend </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/mltext?text=Rahmat&amp;hero=Lancelot&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Logo FF Maker</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Maker FF </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/fftext?text=Rahmat&amp;hero=Kelly&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Detail Hero Mobile Legend</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mengambil Detail Hero Mobile Legend </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/heroml?hero=miya&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Hero Mobile Legend</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> List Hero Mobile Legend </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/herolistml?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Sticker Line</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mengambil Sticker Line dengan URL </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/stickerline?url=https://store.line.me/stickershop/product/8149770/en&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Sticker Line Animated</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Sticker Line Animated to GIF </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/stickerline2?url=https://store.line.me/stickershop/product/8149770/en&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Youtube Downloader</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mendownload Data Video Youtube </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/ytdl?url=https://youtu.be/en9KJdbrZj0&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Twitter</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Twitter Find Account with Username </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/twitter?username=twitter&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Instagram Profile</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mencari Profile Instagram </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/ig?username=instagram&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Instagram Story</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mengambil Stori Instagram </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/igstory?username=instagram&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Instagram Download</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mendownload Postingan Instagram </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/igpost?url=https://www.instagram.com/p/CJbIrOID9T3/&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Instagram Highlights</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mencari Highlights Instagram </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/ighighlights?username=lalamarionmj&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Pokemon</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Pokemon Random </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/pokemon?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Quotes EN</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Quotes EN </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/quotesen?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Quotes Anime</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Quotes Anime </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/quoteanime?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Screenshot WEB</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Screenshot WEB </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/ssweb?url=google.com&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Nick ML</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mengambil Nick Mobile Legend </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/nickml?id=1161941&amp;serverid=2002&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Nick FF</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mengambil Nick Free Fire </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/nickff?id=866740835&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Nick CODM</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mengambil Nick Call Off Duty Mobile </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/nickcodm?id=7852089867668209248&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Anime</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pict Anime </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomanime?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Anime Smile</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pict Anime Smile Gif </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomsmile?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Anime Cry</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pict Anime Cry Gif </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomcry?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Anime Hug</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pict Anime Hug Gif </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomhug?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Anime Kiss</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pict Anime Kiss Gif </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomkiss?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Hentai</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pict Hentai </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomhentai?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random NSFW Blowjob</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Random Pict NSFW Blowjob </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/nsfwblowjob?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Line Timeline</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Downloader Line Timeline </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/linetimeline?url=https://timeline.line.me/post/_dXxojN3GFpO6qMfCp4DXGcuLujuB9SmS5Bfzhkw/1157852855308014679&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Joox</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Mengambil Music dari Joox </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/joox?query=snowman&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>BMKG</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Informasi gempa terbaru </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/bmkg?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Jadwal Bioskop</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Jadwal Bioskop </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/jadwalbioskop?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Film Indo Trending</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Film Indo Trending </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/movieindotrending?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Jadwal TV</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Jadwal TV Indonesia </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/jadwaltv?query=antv&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Jadwal TV NOW</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Jadwal TV Yang sedang disiarkan sekarang</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/jadwaltvnow?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Cek Resi</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Informasi resi </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/resi?query=query&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Shortner URL</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Url Shortener </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/shorturl?url=https://google.com&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Waifu</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Mengambil Random Waifu </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomwaifu?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Random Cat</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Mengambil Random Pict Cat </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/randomcat?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Lyrics</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Search App on Musixmath </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/lirik?query=perfect&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Chord Lyrics</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Chord Lyrics Music </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/chord?query=perfect&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Playstore</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Search App on Playstore </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/playstore?query=whatsapp&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Anoboy Ongoing</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Jadwal Tayang Anime di Anoboy </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/anoboyongoing?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Anoboy Download</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Download Anime di Anoboy </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/anoboydl?url=https://anoboy.tube/2020/12/black-clover-episode-157&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Check IP</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Ip Address Check </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/checkip?ip=172.104.123.53&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Topnews</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY</td> 
+             <td> Top News </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/topnews?apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Light Graffiti</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Light Graffiti</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/lightgraffiti?text=HujanAp&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Sand Writing</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Sand Writing</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/sand_writing?text=HujanAp&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Retro Logo</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Retro Logo </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/retro?bg=1&amp;style=1&amp;text1=HujanApi&amp;text2=WAS&amp;text3=HERE&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Neon Writing</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Neon Writing</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/neon?text1=HujanApi&amp;text2=Mat&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr>
+             <td>Light Writing</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Light Writing</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/light?text=HujanApi&amp;type=1&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Arrow Signs</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Arrow Signs</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/arrowsigns?text1=kanan&amp;text2=kiri&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Led Road</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Led Road</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/ledroad?text=HujanApi&amp;sign=100&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Christmas</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Christmas Writing</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/christmas?text=HujanApi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Beach Sign</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Beach Sign</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/beachsign?text=HujanApi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Airline</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Airline</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/airline?text=HujanApi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Window Writing</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Window Writing</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/window_writing?text=HujanApi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Typewriter</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Typewriter</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/typewriter?text=HujanApi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Christmas</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Christmas Writing</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/christmas?text=HujanApi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Christmas</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat Logo Christmas Writing</td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/christmas?text=HujanApi&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Pornhub Logo</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon PornHUB dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/pornhublogo?text1=Hujan&amp;text2=Api&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Wolf Black</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Wolf Black dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/wolf_black?text1=Hujan&amp;text2=Api&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Marvel Studio</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Marvel Studio dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/marvel_studio?text1=Hujan&amp;text2=Api&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Marvel Avengers</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Marvel Avengers dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/marvel_avengers?text1=Hujan&amp;text2=Api&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Glitch Text</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Glitch Text dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/glitch_text?text1=Hujan&amp;text2=Api&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Sky Online</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Sky Online dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/sky_online?text=HujanAPI&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Black Pink</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Black Pink dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/black_pink?text=HujanAPI&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Green Neon</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Green Neon dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/green_neon?text=black_pink&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+            <tr> 
+             <td>Thunder Text</td> 
+             <td><span class="badge badge-success">GET</span></td> 
+             <td>Active</td> 
+             <td>APIKEY &amp; QUERY </td> 
+             <td> Membuat icon Thunder Text dengan text </td> 
+             <td><a href="https://hujanapi.herokuapp.com/api/thunder_text?text=HujanAPI&amp;apikey=API_KEY" class="btn btn-sm btn-primary">Visit</a></td> 
+            </tr> 
+           </tbody> 
+          </table> 
+         </div> 
+         <div class="card-footer"></div> 
+        </div> 
+       </div> 
+      </div> 
+      <!--Row--> 
+      <!-- Modal Logout --> 
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true"> 
+       <div class="modal-dialog" role="document"> 
+        <div class="modal-content"> 
+         <div class="modal-header"> 
+          <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5> 
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> 
+         </div> 
+         <div class="modal-body"> 
+          <p>Are you sure you want to logout?</p> 
+         </div> 
+         <div class="modal-footer"> 
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button> 
+          <a href="login.html" class="btn btn-primary">Logout</a> 
          </div> 
         </div> 
-          <div class="row">
-            <div class="col-lg-12 text-center">
-                   <p>suka dengan API Nya follow My Github: <a href="https://github.com/reyhangans"
-                  class="btn btn-primary btn-sm" target="_blank"><i class="fab fa-fw fa-github"></i>&nbsp;GitHub</a></p>
-            </div>
-          </div>
-        </div>
-        <!---Container Fluid-->
-      </div>
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; 2021 - Developed By
-              <b><a href="https://github.com/reyhangans" target="_blank">FlinSky</a></b>
-            </span>
-          </div>
-        </div>
-      </footer>
-      <!-- Footer -->
-    </div>
-  </div>
-
-  <!-- Scroll to top -->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="js/ruang-admin.js"></script>
-  <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script>  
-</body>
-<script>
-  function getvisitor(){
-              var xhr = new XMLHttpRequest();
-              var url = 'https://api.countapi.xyz/hit/flinsky.herokuapp.com/visits';
-              xhr.onloadend = function(){
-             data = JSON.parse(this.responseText);
-  document.getElementById("visitor").textContent = data.value
-              };
-              xhr.open("GET", url, true);
-              xhr.send();
-  }
-  
-</script>
-
+       </div> 
+      </div> 
+     </div> 
+     <!--Container Fluid--> 
+    </div> 
+    <!-- Footer --> 
+    <footer class="sticky-footer bg-white"> 
+     <div class="container my-auto"> 
+      <div class="copyright text-center my-auto"> 
+       <span>Copyright © 2021. <b>FlinSkyApi</b> Devoloped by<i class="fa fa-heart" style="color:#f73333;text-align:center;">Rey</i> </span> 
+      </div> 
+     </div> 
+    </footer> 
+    <!-- Footer --> 
+   </div> 
+  </div> 
+  <!-- Scroll to top --> 
+  <a class="scroll-to-top rounded" href="#page-top"> <i class="fa fa-chevron-up"></i> </a> 
+  <!--
+   
+   
+   
+   
+    --> 
+ </body>
 </html>
