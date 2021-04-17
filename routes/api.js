@@ -1262,6 +1262,48 @@ router.get('/dewabatch', async (req, res, next) => {
 })
 
 
+router.get('/neonime', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            q = req.query.q
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/neonime_search?q=${q}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+
+router.get('/neonimebatch', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            url = req.query.url
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/neonime_batch?url=${url}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+
 router.get('/muslim/bacaanshalat', async (req, res, next) => {
         var apikeyInput = req.query.apikey
             
