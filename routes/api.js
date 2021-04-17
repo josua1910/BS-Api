@@ -953,7 +953,7 @@ router.get('/joox', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
     if (!q) return res.json({ status : false, creator : `Rey`, message : "masukan parameter q"})
 
-       fetch(encodeURI(`https://api.zeks.xyz/api/joox?apikey=apivinz&q=${q}`))
+       fetch(encodeURI(`https://api.zeks.xyz/api/joox?q=${q}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
