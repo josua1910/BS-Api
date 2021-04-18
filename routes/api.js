@@ -953,7 +953,7 @@ router.get('/joox', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
     if (!q) return res.json({ status : false, creator : `Rey`, message : "masukan parameter q"})
 
-       fetch(encodeURI(`https://api.zeks.xyz/api/joox?q=${q}`))
+       fetch(encodeURI(`https://mnazria.herokuapp.com/api/jooxnich?search=${q}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
