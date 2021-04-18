@@ -19,32 +19,67 @@ router.get('/api/news', (req, res) => {
     res.redirect('https://raw.githubusercontent.com/Zhirrr/My-SQL-Results/main/Berita.json')
 })
 
-router.get('api/cekapikey', (req, res) => {
-    config = {
-        status: true,
-        result: {
-            prefix : '/',
-            namabot: 'ZhirrrBot',
-            namaowner: 'Zhirrr',
-            instagram: 'zhirr_ajalah',
-            youtube : 'Gak Punya'
-        }
-    }
-    res.json(config)
+router.get('/cekapikey', async (req, res, next) => {
+	var apikeyInput = req.query.apikey
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	a = await cekApiKey(apikeyInput)
+	if (a) {
+	json = JSON.stringify({
+		status: true,
+		creator: creator,
+		result: {
+            status:a.status,
+			id: a._id,
+			apikey: a.apikey,
+			more_info: {
+				email: a.email,
+				nomor_hp: a.nomor_hp,
+				name: a.name,
+				age: a.age,
+				country: a.country,
+				exp:a.exp,
+			},
+		},
+		message: `jangan lupa follow ${creator}`
+	})
+} else {
+	json = JSON.stringify({
+		status: false
+	})
+}
+res.send(JSON.parse(json))
 })
 
-router.get('/cekapikey', (req, res) => {
-    config = {
-        status: true,
-        result: {
-            prefix : '/',
-            namabot: 'ZhirrrBot',
-            namaowner: 'Zhirrr',
-            instagram: 'zhirr_ajalah',
-            youtube : 'Gak Punya'
-        }
-    }
-    res.json(config)
+router.get('api/cekapikey', async (req, res, next) => {
+	var apikeyInput = req.query.apikey
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	a = await cekApiKey(apikeyInput)
+	if (a) {
+	json = JSON.stringify({
+		status: true,
+		creator: creator,
+		result: {
+            status:a.status,
+			id: a._id,
+			apikey: a.apikey,
+			more_info: {
+				email: a.email,
+				nomor_hp: a.nomor_hp,
+				name: a.name,
+				age: a.age,
+				country: a.country,
+				exp:a.exp,
+			},
+		},
+		message: `jangan lupa follow ${creator}`
+	})
+} else {
+	json = JSON.stringify({
+		status: false
+	})
+}
+res.send(JSON.parse(json))
+
 })
 
 router.get('/config', (req, res) => {
