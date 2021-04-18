@@ -947,7 +947,7 @@ router.get('/yutub/play', async (req, res, next) => {
 })
 
 
-router.get('/jooxnich/search', async (req, res, next) => {
+router.get('/jooxnich', async (req, res, next) => {
             q = req.query.q
             
 	if(!apikeyInput) return res.json(loghandler.notparam)
