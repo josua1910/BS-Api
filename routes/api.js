@@ -947,7 +947,7 @@ router.get('/yutub/play', async (req, res, next) => {
 })
 
 
-router.get('/jooxnich', async (req, res, next) => {
+router.get('/jooxnich?search', async (req, res, next) => {
             q = req.query.q
             
 	if(!apikeyInput) return res.json(loghandler.notparam)
@@ -1300,6 +1300,45 @@ router.get('/neonimebatch', async (req, res, next) => {
          })
          .catch(e => {
          	res.json(loghandler.error)
+})
+})
+
+router.get('/waifu', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/waifu`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/nekonime', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/nekonime`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+
 })
 })
 
