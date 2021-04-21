@@ -1250,7 +1250,7 @@ router.get('/kuis/tebakbendera', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://raw.githubusercontent.com/reyhangans/Menu-Api/main/tebakbendera.json`, methods=['GET','POST'])
+       fetch(encodeURI(`https://raw.githubusercontent.com/reyhangans/Menu-Api/main/tebakbendera.json`))
         .then(response => response.json())
         .then(data => {
         var result = data;
