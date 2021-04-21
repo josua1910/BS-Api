@@ -2744,7 +2744,7 @@ router.get('/yutub/video', async (req, res, next) => {
 	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/ytv?url=${url}`))
+       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/ytmp4?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -2767,7 +2767,7 @@ router.get('/yutub/audio', async (req, res, next) => {
 	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/yta?url=${url}`))
+       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/ytmp3?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
