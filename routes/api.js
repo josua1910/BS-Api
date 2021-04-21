@@ -1241,6 +1241,26 @@ router.get('/kuis/family100', async (req, res, next) => {
 })
 
 
+router.get('/kuis/tebakbendera', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/reyhangans/Menu-Api/main/tebakbendera.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+
 router.get('/cersex', async (req, res, next) => {
         var apikeyInput = req.query.apikey
             
