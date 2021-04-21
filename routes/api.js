@@ -182,7 +182,6 @@ router.get('/find', async (req, res, next) => {
 router.get('/cekapikey', async (req, res, next) => {
 	var apikeyInput = req.query.apikey
 	if(!apikeyInput) return res.json(loghandler.notparam)
-        if (apikey != 'reyanjay') return res.json(loghandler.invalidKey
 	a = await cekApiKey(apikeyInput)
 	if (a) {
 	json = JSON.stringify({
@@ -1273,6 +1272,7 @@ router.get('/cersex', async (req, res, next) => {
         .then(data => {
         var result = data;
              res.json({
+                author: 'rey',
                  result
              })
          })
@@ -1782,6 +1782,7 @@ router.get('/simsimi', async (req, res, next) => {
         .then(data => {
         var result = data;
              res.json({
+                author: 'Rey',
                  result
              })
          })
