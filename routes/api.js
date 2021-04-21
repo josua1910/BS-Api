@@ -1223,16 +1223,17 @@ router.get('/muslim/doaharian', async (req, res, next) => {
 
 router.get('/kuis/family100', async (req, res, next) => {
         var apikeyInput = req.query.apikey
-            
+
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
 
        fetch(encodeURI(`https://raw.githubusercontent.com/reyhangans/Zhirrr-Api/main/lib/family100.json`))
         .then(response => response.json())
         .then(data => {
+        var acak = Math.floor(Math.random() * x) +2 ;
         var result = data;
              res.json({
-                 result
+             	 result  
              })
          })
          .catch(e => {
@@ -1252,6 +1253,10 @@ router.get('/kuis/tebakbendera', async (req, res, next) => {
         .then(data => {
         var result = data;
              res.json({
+             	author: '${Author}',
+                bendera: '${bendera}',
+                Jwban : '${jawaban}',
+                poin : '{poin}',
                  result
              })
          })
