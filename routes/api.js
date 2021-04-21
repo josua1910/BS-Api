@@ -1227,7 +1227,7 @@ router.get('/kuis/family100', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'sekhaapi') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://raw.githubusercontent.com/Zhirrr/Python-Flask-Api/master/caklontong.json?genre=acak`))
+       fetch(encodeURI(`https://raw.githubusercontent.com/reyhangans/database-api/main/family100.json?token=ATURSFS6D22NKYBELNOQJKDAP72BA`))
         .then(response => response.json())
         .then(data => {
         var result = data;
