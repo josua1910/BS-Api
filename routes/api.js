@@ -106,13 +106,13 @@ loghandler = {
     	status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'theme tidak tersedia silahkan masukkan texmaker/list atau baca documentasi'
+        message: 'theme tidak tersedia'
      },
     invalidKey: {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'APIKEY_INVALID https://wa.me/6281246460730'
+        message: 'APIKEY_INVALID'
     },
     invalidlink: {
         status: false,
@@ -133,7 +133,7 @@ loghandler = {
     error: {
         status: false,
         creator: `${creator}`,
-        message: 'perbaikan'
+        message: 'Njir Erorr bro'
     }
 }
 
@@ -182,6 +182,7 @@ router.get('/find', async (req, res, next) => {
 router.get('/cekapikey', async (req, res, next) => {
 	var apikeyInput = req.query.apikey
 	if(!apikeyInput) return res.json(loghandler.notparam)
+        if (apikey != 'reyanjay') return res.json(loghandler.invalidKey
 	a = await cekApiKey(apikeyInput)
 	if (a) {
 	json = JSON.stringify({
