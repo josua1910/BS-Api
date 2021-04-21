@@ -1231,6 +1231,9 @@ router.get('/kuis/family100', async (req, res, next) => {
         .then(response => response.json())
         .then(data => {
         var result = data;
+        var random = Math.floor(Math.random() * json.length)
+        var soal = json[random].result.soal
+        var jawaban = json[random].result.jawaban
              res.json({
              	 result  
              })
@@ -1247,7 +1250,7 @@ router.get('/kuis/tebakbendera', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://raw.githubusercontent.com/reyhangans/Menu-Api/main/tebakbendera.json`))
+       fetch(encodeURI(`https://raw.githubusercontent.com/reyhangans/Menu-Api/main/tebakbendera.json`, methods=['GET','POST'])
         .then(response => response.json())
         .then(data => {
         var result = data;
