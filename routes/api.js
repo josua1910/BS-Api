@@ -1232,8 +1232,6 @@ router.get('/kuis/family100', async (req, res, next) => {
         .then(data => {
         var result = data;
              res.json({
-                  result.result[0].soal
-                  result.result[0].jawaban
              	 result  
              })
          })
