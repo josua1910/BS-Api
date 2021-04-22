@@ -3071,11 +3071,10 @@ router.get('/maker/hartatahta', async (req, res, next) => {
     if (!text) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter text"})
 
        fetch(encodeURI(`https://api.zeks.xyz/api/hartatahta?text=${text}`))
-        .then(response => response.buffer())
+        .then(response => response.arrayBuffer())
         .then(data => {
         var result = data;
-             res.json({
-             	author: 'reyanjay',
+             res.arrayBuffer({
                  result
              })
          })
