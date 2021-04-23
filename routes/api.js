@@ -2814,12 +2814,12 @@ router.get('/yutub/video', async (req, res, next) => {
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`https://videfikri.com/api/ytmp4/?url=${url}`))
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/ytv?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
              res.json({
-             	author: 'reyanjay',
+             	author: 'rey',
                  result
              })
          })
@@ -2837,12 +2837,12 @@ router.get('/yutub/audio', async (req, res, next) => {
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`https://videfikri.com/api/ytmp3/?url=${url}`))
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/yta?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
              res.json({
-             	author: 'reyanjay',
+             	author: 'rey',
                  result
              })
          })
@@ -2860,7 +2860,7 @@ router.get('/ig/stalk', async (req, res, next) => {
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!username) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter username"})
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/stalk?username=${username}`))
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/stalk?username=${username}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
