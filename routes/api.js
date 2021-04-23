@@ -843,7 +843,7 @@ router.get('/fbdown', async (req, res, next) => {
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`https://fb-api-zhirrr.vercel.app/?url=${url}`))
+       fetch(encodeURI(`https://videfikri.com/api/fbdl/?urlfb=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -933,7 +933,30 @@ router.get('/yutub/play', async (req, res, next) => {
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!q) return res.json({ status : false, creator : `Rey`, message : "masukan parameter q"})
 
-       fetch(encodeURI(`https://docs-jojo.herokuapp.com/api/yt-play?q=${q}`))
+       fetch(encodeURI(`https://videfikri.com/api/ytplayv2/?query=${q}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+
+})
+})
+
+
+router.get('/yutub/playmp4', async (req, res, next) => {
+        var apikeyInput = req.query.apikey,
+            q = req.query.q
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
+    if (!q) return res.json({ status : false, creator : `Rey`, message : "masukan parameter q"})
+
+       fetch(encodeURI(`https://videfikri.com/api/playmp4/?query=${q}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1231,9 +1254,6 @@ router.get('/kuis/family100', async (req, res, next) => {
         .then(response => response.json())
         .then(data => {
         var result = data;
-        var random = Math.floor(Math.random() * json.length)
-        var soal = json[random].result.soal
-        var jawaban = json[random].result.jawaban
              res.json({
              	 result  
              })
@@ -1377,7 +1397,7 @@ router.get('/nekonime', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/nekonime`))
+       fetch(encodeURI(`https://videfikri.com/api/anime/neko`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -2794,7 +2814,7 @@ router.get('/yutub/video', async (req, res, next) => {
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/ytmp4?url=${url}`))
+       fetch(encodeURI(`https://videfikri.com/api/ytmp4/?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -2817,7 +2837,7 @@ router.get('/yutub/audio', async (req, res, next) => {
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!url) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/ytmp3?url=${url}`))
+       fetch(encodeURI(`https://videfikri.com/api/ytmp3/?url=${url}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -3041,18 +3061,17 @@ router.get('/maker3d/no4', async (req, res, next) => {
 
 router.get('/yutub/search', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
-            video = req.query.video
+            q = req.query.q
             
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
     if (!video) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter video"})
 
-       fetch(encodeURI(`https://yutub-api-zaahirr.herokuapp.com/search?q=${video}`))
+       fetch(encodeURI(`https://videfikri.com/api/ytsearch/?query=${q}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
              res.json({
-             	author: 'reyanjay',
                  result
              })
          })
