@@ -1317,7 +1317,7 @@ router.get('/dewabatch', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/dewabatch?q=${q}`))
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/dewabatch?q=${q}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1378,7 +1378,47 @@ router.get('/waifu', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`http://docs-jojo.herokuapp.com/api/waifu`))
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/waifu`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+
+})
+})
+
+router.get('/1cak', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/1cak`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+
+})
+})
+
+router.get('/kusonime', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            q = req.query.q
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/kuso?q=${q}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1397,7 +1437,7 @@ router.get('/nekonime', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'reyanjay') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://videfikri.com/api/anime/neko`))
+       fetch(encodeURI(`https://st4rz.herokuapp.com/api/nekonime`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -3090,10 +3130,10 @@ router.get('/maker/hartatahta', async (req, res, next) => {
     if (!text) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter text"})
 
        fetch(encodeURI(`https://api.zeks.xyz/api/hartatahta?text=${text}`))
-        .then(response => response.arrayBuffer())
+        .then(response => response.buffer())
         .then(data => {
         var result = data;
-             res.arrayBuffer({
+             res.buffer({
                  result
              })
          })
