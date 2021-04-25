@@ -40,7 +40,7 @@ loghandler = {
         creator: `${creator}`,
         code: 406,
         message: 'masukan parameter apikey',
-        getApikey: 'chat Rey wa.me/6281246460730 , freee'
+        getApikey: 'chat Rey wa.me/6282114499086 , freee'
     },
     notkey: {
         status: false,
