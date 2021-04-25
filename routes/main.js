@@ -17,7 +17,7 @@ router.get('/config', (req, res) => {
         result: {
             prefix : '/',
             namabot: 'BOT_STYLE',
-            namaowner: 'Benniismael',
+            namaowner: 'Beniismael',
             instagram: 'Beni_230',
             youtube : 'NEO GAMING'
         }
