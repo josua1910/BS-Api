@@ -109,7 +109,7 @@ if(apikey != 'MASUKAN_NAMA_APIKEY') return res.json(loghandler.invalidKey)
 </p>
 
 # Live API
-* https://zahirr-web.herokuapp.com
+* https://bsbt-rest-api.herokuapp.com
 - Gunakan Parameter Yg Sama Yak :)
 - 100 % Open Source
 - Like This Repository Okeee 🎉
